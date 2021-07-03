@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express();
 
-//swagger
 
 
 //middleware
@@ -156,6 +155,12 @@ app.get('/details', (req, res) => {
 //         message: "i am post man"
 //     })
 // })
+//swagger
+const swaggerUi = require('swagger-ui-express');
+const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerOption = require('./swagger')
+const jsDoc = swaggerJsDoc(swaggerOption)
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(jsDoc));
 
 app.listen(5000)
 
