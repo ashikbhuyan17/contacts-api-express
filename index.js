@@ -158,7 +158,8 @@ app.get('/details', (req, res) => {
 //swagger
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsDoc = require('swagger-jsdoc');
-const swaggerOption = require('./swagger')
+const swaggerOption = require('./swagger');
+const { get } = require('./api/routes/contact.route');
 const jsDoc = swaggerJsDoc(swaggerOption)
 app.use('/swagger', swaggerUi.serve, swaggerUi.setup(jsDoc));
 
